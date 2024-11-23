@@ -89,7 +89,7 @@ function HomePage() {
       <div 
         className="h-[60vh] bg-cover bg-center relative mt-16"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=2048")'
+          backgroundImage: 'url(/custom-images/BanhMi/Banhmi99.jpg)'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50" />
@@ -178,7 +178,7 @@ function App() {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <UtensilsCrossed className="text-[#ff5722]" size={28} />
-              <span className="text-xl font-bold">Saigon Kitchen</span>
+              <span className="text-xl font-bold">Bánh 84</span>
             </Link>
 
             {/* Navigation Links */}
