@@ -66,7 +66,7 @@ export default function OrderNow() {
                 <h3 className="text-xl font-semibold mb-1">Facebook Messenger</h3>
                 <p className="text-gray-600 mb-2">Nhắn Facebook này để order</p>
                 <a 
-                  href={`https://m.me/mon.be.39?text=${encodedMessage}`}
+                  href={`https://m.me/TrangTestSo1?text=${encodedMessage}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="inline-block bg-[#0084ff] text-white px-4 py-2 rounded-md hover:bg-[#0074e4] transition-colors"

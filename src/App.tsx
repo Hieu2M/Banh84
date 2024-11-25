@@ -24,7 +24,7 @@ const menuItems = [
     id: 'banh-cuon',
     name: "Bánh Cuốn",
     description: "Traditional Vietnamese beef noodle soup with rice noodles, tender sliced beef, and aromatic herbs",
-    price: 0,
+    price: 11,
     image: [
       "/custom-images/BanhCuonUot/Banhcuon.jpg"
     ],
@@ -35,25 +35,38 @@ const menuItems = [
     id: 'banh-uot',
     name: "Bánh Ướt",
     description: "Fresh spring rolls with shrimp, herbs, and rice noodles served with peanut sauce",
-    price: 0,
+    price: 7,
     image: [
       "custom-images/BanhCuonUot/Banhuot.jpg"
     ],
     category: "Bánh Ướt",
-    isPopularDish: true
+    isPopularDish: true,
+    isVegetarian: true
   },
+  // {
+  //   id: 'banh-bot-loc',
+  //   name: "Bánh Bột Lọc",
+  //   description: "Spicy beef noodle soup from Hue with lemongrass and Vietnamese herbs",
+  //   price: 10,
+  //   image: [
+  //     "custom-images/BanhBotLoc/banhbotloctonghop.jpg",
+  //     "custom-images/BanhBotLoc/banhbotloc5.jpg",
+  //     "custom-images/BanhBotLoc/banhbotloc2.jpg"
+  //   ],
+  //   category: "Bánh Bột Lọc",
+  //   isPopularDish: true
+  // },
   {
-    id: 'banh-bot-loc',
-    name: "Bánh Bột Lọc",
+    id: 'xoi-bap',
+    name: "Xôi Bắp",
     description: "Spicy beef noodle soup from Hue with lemongrass and Vietnamese herbs",
-    price: 0,
+    price: 15,
     image: [
-      "custom-images/BanhBotLoc/banhbotloctonghop.jpg",
-      "custom-images/BanhBotLoc/banhbotloc5.jpg",
-      "custom-images/BanhBotLoc/banhbotloc2.jpg"
+      "/custom-images/XoiBap/Xoibap.jpg",
     ],
-    category: "Bánh Bột Lọc",
-    isPopularDish: true
+    category: "Xôi Bắp",
+    isPopularDish: true,
+    isVegetarian: true
   }
 ];
 
@@ -94,7 +107,7 @@ function HomePage() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Bánh 84</h1>
+          <h1 className="text-5xl font-bold mb-4">Bánh 84st</h1>
           <p className="text-xl">Authentic Vietnamese Cuisine</p>
         </div>
       </div>
@@ -138,7 +151,7 @@ function HomePage() {
                   rel="noopener noreferrer"
                   className="text-[#ff5722] hover:underline"
                 >
-                  @Bánh84
+                  @Bánh84st
                 </a>
               </div>
             </div>
@@ -178,7 +191,7 @@ function App() {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <UtensilsCrossed className="text-[#ff5722]" size={28} />
-              <span className="text-xl font-bold">Bánh 84</span>
+              <span className="text-xl font-bold">Bánh 84st</span>
             </Link>
 
             {/* Navigation Links */}
