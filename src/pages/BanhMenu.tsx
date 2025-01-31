@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import MenuItem from '../components/MenuItem';
 import { useLocation } from 'react-router-dom';
+import ScrollToTop from "../components/ScrollToTop.tsx";
 
 const banhItems = [
   // Banh Mi Section
@@ -111,18 +112,18 @@ const banhItems = [
     ],
     category: "Xôi Bắp",
     isVegetarian: true
-  },
+  }
   
   // Banh Bot Loc Section
-  {
-    name: "Bánh Bột Lọc",
-    description: "Wet rice paper rolls served with Vietnamese ham and bean sprouts",
-    price: 10,
-    image: [
-      "/custom-images/BanhBotLoc/banhbotloc5.jpg",
-    ],
-    category: "Bánh Bột Lọc"
-  }
+  // {
+  //   name: "Bánh Bột Lọc",
+  //   description: "Wet rice paper rolls served with Vietnamese ham and bean sprouts",
+  //   price: 10,
+  //   image: [
+  //     "/custom-images/BanhBotLoc/banhbotloc5.jpg",
+  //   ],
+  //   category: "Bánh Bột Lọc"
+  // }
   // {
   //   name: "Bánh Bột Lọc Man",
   //   description: "Wet rice paper rolls served with Vietnamese ham and bean sprouts",
@@ -151,6 +152,7 @@ export default function BanhMenu() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 mt-16">
       <div className="max-w-6xl mx-auto px-4">
+        <ScrollToTop/>
         <h1 className="text-4xl font-bold text-center mb-8">Menu</h1>
         
         {/* Banh Mi Section */}
@@ -202,16 +204,16 @@ export default function BanhMenu() {
         </section>
 
         {/* Banh Bot Loc Section */}
-        <section ref={el => categoryRefs.current['Bánh Bột Lọc'] = el} className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-[#ff5722]">Bánh Bột Lọc</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {banhItems
-              .filter(item => item.category === "Bánh Bột Lọc")
-              .map((item, index) => (
-                <MenuItem key={`banh-uot-${index}`} {...item} />
-              ))}
-          </div>
-        </section>
+        {/*<section ref={el => categoryRefs.current['Bánh Bột Lọc'] = el} className="mb-12">*/}
+        {/*  <h2 className="text-2xl font-semibold mb-6 text-[#ff5722]">Bánh Bột Lọc</h2>*/}
+        {/*  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">*/}
+        {/*    {banhItems*/}
+        {/*      .filter(item => item.category === "Bánh Bột Lọc")*/}
+        {/*      .map((item, index) => (*/}
+        {/*        <MenuItem key={`banh-uot-${index}`} {...item} />*/}
+        {/*      ))}*/}
+        {/*  </div>*/}
+        {/*</section>*/}
       </div>
     </div>
   );

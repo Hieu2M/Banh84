@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
-import { MapPin, Phone, UtensilsCrossed, Facebook } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { MapPin, Phone, UtensilsCrossed, Facebook, Menu, X } from 'lucide-react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MenuItem from './components/MenuItem';
 import BanhMenu from './pages/BanhMenu';
 import OrderNow from './pages/OrderNow';
 import Cart from './pages/Cart';
 import CartButton from './components/CartButton';
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const menuItems = [
   {
@@ -69,16 +70,6 @@ const menuItems = [
     isVegetarian: true
   }
 ];
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, [pathname]);
-
-  return null;
-}
 
 function HomePage() {
   const location = useLocation();
@@ -164,12 +155,7 @@ function HomePage() {
 
 function App() {
   const location = useLocation();
-  
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact-section');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -179,7 +165,13 @@ function App() {
     } else {
       window.location.href = '/';
     }
+    setIsMenuOpen(false);
   };
+
+  // Close menu when changing routes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -202,11 +194,57 @@ function App() {
               <CartButton />
             </div>
 
-            {/* Order Now Button */}
-            <div>
-              <Link 
-                to="/order-now"
-                className="bg-[#ff5722] text-white px-6 py-2 rounded hover:bg-[#f4511e] transition-colors duration-200 inline-block"
+            {/* Mobile Menu Button */}
+            <div className="flex items-center gap-4 md:hidden">
+              <CartButton />
+              <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-white hover:text-[#ff5722] transition-colors"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+
+            {/* Order Now Button (Desktop) */}
+            <div className="hidden md:block">
+              <Link
+                  to="/order-now"
+                  className="bg-[#ff5722] text-white px-6 py-2 rounded hover:bg-[#f4511e] transition-colors duration-200 inline-block"
+              >
+                Order Now
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <div
+              className={`${
+                  isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+              } md:hidden transition-all duration-300 ease-in-out overflow-hidden`}
+          >
+            <div className="py-4 space-y-4">
+              <Link
+                  to="/"
+                  className="block text-white hover:text-[#ff5722] transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <Link
+                  to="/banh-menu"
+                  className="block text-white hover:text-[#ff5722] transition-colors duration-200"
+              >
+                Menu
+              </Link>
+              <a
+                  href="#contact-section"
+                  onClick={handleContactClick}
+                  className="block text-white hover:text-[#ff5722] transition-colors duration-200"
+              >
+                Contact
+              </a>
+              <Link
+                  to="/order-now"
+                  className="block bg-[#ff5722] text-white px-6 py-2 rounded hover:bg-[#f4511e] transition-colors duration-200 text-center"
               >
                 Order Now
               </Link>
